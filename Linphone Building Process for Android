@@ -1,0 +1,41 @@
+To Build Linphone for Android You can follow these Steps:
+
+1) First Download Android SDK (at least API 16 is needed)
+
+2)Then Download Android NDK(>=r9d) from Google.
+
+3)Then Install following Dependencies which is further required while installing Linphone
+- cmake
+- ant
+- python
+- yasm
+- nasm
+
+you can install these tool through Terminal.
+
+4)Then You have to download source code of Linphone using following command:
+
+	git clone git://git.linphone.org/linphone-android.git --recursive 
+
+5) After Downloading Source code You have to set Path of Android SDK,NDK and also JDK
+in Android SDK You have to give path upto Tools.
+For Example : in console type following command
+
+  export SDK_PATH=/home/rajesh/android/adt_bundle/sdk/
+  export NDK_PATH=/home/rajesh/android/android-ndk-r10c/
+  export JDK_PATH=/usr/lib/jvm/java-7-openjdk-i386/
+  export PATH=$PATH:$NDK_PATH:$SDK_PATH/platform-tools:$SDK_PATH/tools:$JDK_PATH
+  
+6)After setting path  you have to navigate through Linphone directory  and type command  “./prepare.py”  then This will configure the build and generate a Makefile in the top level directory.
+
+If you get following error: CMake Error Could not find the intltoolize program then
+Refer : http://lists.nongnu.org/archive/html/linphone-users/2015-07/msg00092.html
+
+7)After setting path  you have to navigate through Linphone directory  and type command  “make”  then it will generate apk for Linphone.
+
+8)To generate a liblinphone SDK zip containing a full jar and native libraries, run
+    $ make liblinphone-android-sdk
+
+While generating sdk and jar of linphone if you face android command not found error then update your Environment variable
+
+  export PATH=${PATH}:/home/ecosmob/android/adt_bundle/sdk/platform-tools/:/home/ecosmob/android/adt_bundle/sdk/tools/
